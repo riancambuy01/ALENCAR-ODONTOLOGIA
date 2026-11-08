@@ -1,0 +1,1180 @@
+/* =========================================================
+   ALENCAR ODONTOLOGIA
+   FOOTER PREMIUM
+========================================================= */
+
+.site-footer {
+
+    --footer-bg: #061a2d;
+    --footer-bg-light: #092640;
+
+    --footer-blue: #4da3dc;
+    --footer-blue-light: #83c7f0;
+
+    --footer-text: #ffffff;
+    --footer-muted: rgba(255,255,255,.62);
+
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(77,163,220,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(77,163,220,.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            var(--footer-bg),
+            #041321
+        );
+
+    color: var(--footer-text);
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.footer-container {
+
+    position: relative;
+    z-index: 2;
+
+    width: min(100% - 36px, 1380px);
+
+    margin: auto;
+
+    padding: 75px 0 25px;
+
+}
+
+
+/* =========================================================
+   BRILHOS
+========================================================= */
+
+.footer-glow {
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(100px);
+
+    opacity: .25;
+
+}
+
+
+.footer-glow-1 {
+
+    top: -200px;
+    left: -150px;
+
+    background:
+        rgba(77,163,220,.35);
+
+}
+
+
+.footer-glow-2 {
+
+    bottom: -220px;
+    right: -160px;
+
+    background:
+        rgba(131,199,240,.25);
+
+}
+
+
+/* =========================================================
+   GRID PRINCIPAL
+========================================================= */
+
+.footer-main {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1.2fr;
+
+    gap: 55px;
+
+}
+
+
+/* =========================================================
+   MARCA
+========================================================= */
+
+.footer-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.footer-logo-mark {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--footer-blue-light),
+            var(--footer-blue)
+        );
+
+    color: #062039;
+
+    font-size: 1.45rem;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 30px rgba(77,163,220,.18);
+
+}
+
+
+.footer-logo strong {
+
+    display: block;
+
+    font-size: 1.05rem;
+
+    letter-spacing: .08em;
+
+}
+
+
+.footer-logo div span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--footer-blue-light);
+
+    font-size: .65rem;
+
+    font-weight: 800;
+
+    letter-spacing: .22em;
+
+}
+
+
+.footer-brand > p {
+
+    max-width: 390px;
+
+    margin: 0;
+
+    color: var(--footer-muted);
+
+    font-size: .88rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.footer-trust {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 25px;
+
+}
+
+
+.footer-trust span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: .65rem;
+
+    transition:
+        .35s ease;
+
+}
+
+
+.footer-trust svg {
+
+    width: 14px;
+    height: 14px;
+
+    color:
+        var(--footer-blue-light);
+
+}
+
+
+.footer-trust span:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(77,163,220,.25);
+
+    background:
+        rgba(77,163,220,.07);
+
+}
+
+
+/* =========================================================
+   COLUNAS
+========================================================= */
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+.footer-column h3 {
+
+    margin:
+        0 0 10px;
+
+    color: #fff;
+
+    font-size: .78rem;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+}
+
+
+.footer-column a {
+
+    position: relative;
+
+    width: fit-content;
+
+    color:
+        var(--footer-muted);
+
+    text-decoration: none;
+
+    font-size: .82rem;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+
+.footer-column a::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        var(--footer-blue-light);
+
+    transition:
+        width .35s ease;
+
+}
+
+
+.footer-column a:hover {
+
+    color:
+        #fff;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.footer-column a:hover::before {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.footer-contact a,
+.footer-location {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: fit-content;
+
+}
+
+
+.footer-contact-icon {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        rgba(77,163,220,.08);
+
+    color:
+        var(--footer-blue-light);
+
+    transition:
+        .35s ease;
+
+}
+
+
+.footer-contact a:hover .footer-contact-icon {
+
+    background:
+        var(--footer-blue);
+
+    color:
+        #061a2d;
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.footer-contact small,
+.footer-location small {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color:
+        rgba(255,255,255,.42);
+
+    font-size: .6rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+}
+
+
+.footer-contact a,
+.footer-location {
+
+    color:
+        var(--footer-muted);
+
+    text-decoration: none;
+
+    font-size: .8rem;
+
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.footer-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        55px 0 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   CERTIFICAÇÕES
+========================================================= */
+
+.footer-certifications {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.certification-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+
+}
+
+
+.certification-item:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(77,163,220,.25);
+
+    background:
+        rgba(77,163,220,.05);
+
+}
+
+
+.certification-icon {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        rgba(77,163,220,.09);
+
+    font-size: .95rem;
+
+}
+
+
+.certification-item strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: .75rem;
+
+}
+
+
+.certification-item span {
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: .65rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   ÁREA LEGAL / PPT
+========================================================= */
+
+.footer-legal {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 28px;
+
+    padding: 22px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.footer-legal-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.legal-shield {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(77,163,220,.09);
+
+}
+
+
+.footer-legal-title strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: .75rem;
+
+}
+
+
+.footer-legal-title span {
+
+    color:
+        rgba(255,255,255,.43);
+
+    font-size: .64rem;
+
+}
+
+
+.footer-legal-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 20px;
+
+}
+
+
+.footer-legal-links a {
+
+    color:
+        rgba(255,255,255,.55);
+
+    text-decoration: none;
+
+    font-size: .67rem;
+
+    transition:
+        color .3s ease;
+
+}
+
+
+.footer-legal-links a:hover {
+
+    color:
+        var(--footer-blue-light);
+
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-top: 25px;
+
+}
+
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: .65rem;
+
+}
+
+
+.footer-bottom strong {
+
+    color:
+        rgba(255,255,255,.62);
+
+}
+
+
+.footer-development,
+.footer-developer {
+    text-align: center;
+}
+
+
+.footer-heart {
+
+    display: inline-block;
+
+    margin: 0 3px;
+
+    color:
+        #ff6b7a;
+
+    animation:
+        footerHeartbeat 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes footerHeartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    15% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+    30% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .footer-main {
+
+        grid-template-columns:
+            1.4fr 1fr 1fr;
+
+    }
+
+    .footer-contact {
+
+        grid-column: span 3;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .footer-container {
+
+        width:
+            min(100% - 28px, 1380px);
+
+        padding-top: 55px;
+
+    }
+
+
+    .footer-main {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 40px 25px;
+
+    }
+
+
+    .footer-brand {
+
+        grid-column:
+            span 2;
+
+    }
+
+
+    .footer-contact {
+
+        grid-column:
+            span 2;
+
+    }
+
+
+    .footer-certifications {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .footer-legal {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .footer-legal-links {
+
+        justify-content:
+            flex-start;
+
+        gap: 12px 18px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .footer-development {
+
+        text-align:
+            left;
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .footer-main {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .footer-brand,
+    .footer-contact {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .footer-trust {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .footer-legal-links {
+
+        flex-direction:
+            column;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .site-footer *,
+    .site-footer *::before,
+    .site-footer *::after {
+
+        animation: none !important;
+
+        transition: none !important;
+
+    }
+
+}
+
+/* =========================================================
+   COPYRIGHT + DESENVOLVEDOR
+========================================================= */
+
+.footer-bottom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    padding-top: 28px;
+
+    text-align: center;
+
+}
+
+
+/* COPYRIGHT */
+
+.footer-copyright {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: .65rem;
+
+    line-height: 1.6;
+
+}
+
+
+.footer-copyright strong {
+
+    color:
+        rgba(255,255,255,.62);
+
+}
+
+
+/* =========================================================
+   ASSINATURA DA AGÊNCIA
+========================================================= */
+
+.footer-developer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    text-align: center;
+
+}
+
+
+.developer-label {
+
+    color:
+        rgba(255,255,255,.30);
+
+    font-size: .58rem;
+
+    letter-spacing: .04em;
+
+}
+
+
+/* =========================================================
+   MARCA ALPHA
+========================================================= */
+
+.developer-brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    text-decoration: none;
+
+    transition:
+        transform .35s ease;
+
+}
+
+
+/* MINI LOGO */
+
+.developer-mark {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #83c7f0,
+            #4da3dc
+        );
+
+    color:
+        #061a2d;
+
+    font-size: .7rem;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 5px 18px rgba(77,163,220,.18);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+
+}
+
+
+/* NOME */
+
+.developer-name {
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size: .63rem;
+
+    font-weight: 700;
+
+    letter-spacing: .09em;
+
+    transition:
+        color .35s ease;
+
+}
+
+
+.developer-name strong {
+
+    color:
+        #83c7f0;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.developer-brand:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.developer-brand:hover .developer-mark {
+
+    transform:
+        rotate(-5deg)
+        scale(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(77,163,220,.32);
+
+}
+
+
+.developer-brand:hover .developer-name {
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .footer-bottom {
+
+        gap: 14px;
+
+    }
+
+    .footer-developer {
+
+        flex-direction: column;
+
+        gap: 7px;
+
+    }
+
+}

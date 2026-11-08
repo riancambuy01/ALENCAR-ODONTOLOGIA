@@ -1,0 +1,653 @@
+/* =========================================================
+   ALENCAR ODONTOLOGIA
+   RESPONSIVE SYSTEM 2.0
+   GLOBAL RESPONSIVE SAFETY LAYER
+   ========================================================= */
+
+
+/* =========================================================
+   01. BASE RESPONSIVA
+   ========================================================= */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+.container {
+    width: min(
+        1320px,
+        calc(100% - 40px)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   02. DESKTOP / NOTEBOOK
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .container {
+        width:
+            min(
+                1180px,
+                calc(100% - 48px)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   03. TABLET / 991
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .container {
+        width:
+            calc(100% - 40px);
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-text {
+        text-align:
+            center;
+    }
+
+    .hero-text h1 {
+        margin-inline:
+            auto;
+
+        max-width:
+            760px;
+    }
+
+    .hero-text p {
+        margin-inline:
+            auto;
+
+        max-width:
+            650px;
+    }
+
+    .hero-buttons {
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+    }
+
+    .hero-info {
+        justify-content:
+            center;
+    }
+
+
+    /* -----------------------------------------------------
+       BENEFÍCIOS
+       ----------------------------------------------------- */
+
+    .benefits-wrapper {
+        grid-template-columns:
+            1fr;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+
+    /* -----------------------------------------------------
+       ESPECIALIDADES
+       ----------------------------------------------------- */
+
+    .specialties-grid {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+
+    /* -----------------------------------------------------
+       AVALIAÇÕES
+       ----------------------------------------------------- */
+
+    .testimonial-showcase {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            36px;
+    }
+
+    .testimonial-content {
+        text-align:
+            center;
+
+        align-items:
+            center;
+    }
+
+    .review-meta {
+        justify-content:
+            center;
+    }
+
+    .testimonial-thumbs {
+        justify-content:
+            center;
+    }
+
+}
+
+
+/* =========================================================
+   04. TABLET PEQUENO / 768
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width:
+            calc(100% - 32px);
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero-text h1 {
+        font-size:
+            clamp(
+                2.5rem,
+                8vw,
+                3.5rem
+            );
+    }
+
+    .hero-text p {
+        font-size:
+            1rem;
+    }
+
+    .hero-buttons {
+        gap:
+            12px;
+    }
+
+
+    /* -----------------------------------------------------
+       BENEFÍCIOS
+       ----------------------------------------------------- */
+
+    .stats {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+
+    /* -----------------------------------------------------
+       ESPECIALIDADES
+       ----------------------------------------------------- */
+
+    .specialties-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* -----------------------------------------------------
+       AVALIAÇÕES
+       ----------------------------------------------------- */
+
+    .testimonial-header h2 {
+        font-size:
+            clamp(
+                2rem,
+                7vw,
+                2.8rem
+            );
+    }
+
+    .testimonial-header p {
+        font-size:
+            .95rem;
+    }
+
+    .testimonial-content blockquote {
+        font-size:
+            1.2rem;
+
+        line-height:
+            1.7;
+    }
+
+    .testimonial-person h3 {
+        font-size:
+            1.5rem;
+    }
+
+    .testimonial-image {
+        height:
+            400px;
+    }
+
+    .thumb img {
+        width:
+            68px;
+
+        height:
+            68px;
+    }
+
+}
+
+
+/* =========================================================
+   05. CELULAR / 576
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .container {
+        width:
+            calc(100% - 28px);
+    }
+
+
+    /* -----------------------------------------------------
+       GERAL
+       ----------------------------------------------------- */
+
+    section {
+        overflow-x:
+            clip;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero {
+        overflow:
+            hidden;
+    }
+
+    .hero-buttons {
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+    .hero-buttons .btn {
+        width:
+            100%;
+    }
+
+
+    /* -----------------------------------------------------
+       BENEFÍCIOS
+       ----------------------------------------------------- */
+
+    .stats {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* -----------------------------------------------------
+       ESPECIALIDADES
+       ----------------------------------------------------- */
+
+    .specialties-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .specialty-card {
+        min-width:
+            0;
+    }
+
+
+    /* -----------------------------------------------------
+       AVALIAÇÕES
+       ----------------------------------------------------- */
+
+    .testimonials {
+        padding:
+            80px 0;
+    }
+
+    .testimonial-showcase {
+
+        /*
+         * IMPORTANTE:
+         * Antes havia 70px de padding lateral.
+         * Em celulares isso desperdiçava muito espaço.
+         */
+
+        padding:
+            28px 20px 90px;
+
+        border-radius:
+            24px;
+    }
+
+    .testimonial-image {
+        height:
+            320px;
+
+        border-radius:
+            20px;
+    }
+
+    .testimonial-content blockquote {
+        font-size:
+            1.05rem;
+
+        line-height:
+            1.7;
+    }
+
+    .review-meta {
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        gap:
+            10px;
+    }
+
+    .testimonial-thumbs {
+        gap:
+            12px;
+
+        flex-wrap:
+            wrap;
+    }
+
+    .thumb {
+        padding:
+            6px;
+    }
+
+    .thumb img {
+        width:
+            58px;
+
+        height:
+            58px;
+    }
+
+    .thumb span {
+        font-size:
+            .75rem;
+    }
+
+}
+
+
+/* =========================================================
+   06. CELULAR PEQUENO / 480
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+
+    /* -----------------------------------------------------
+       CONTAINER
+       ----------------------------------------------------- */
+
+    .container {
+        width:
+            calc(100% - 24px);
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero-text h1 {
+        font-size:
+            clamp(
+                2.15rem,
+                10vw,
+                3rem
+            );
+
+        line-height:
+            1.02;
+    }
+
+    .hero-text p {
+        font-size:
+            .94rem;
+
+        line-height:
+            1.75;
+    }
+
+
+    /* -----------------------------------------------------
+       ESPECIALIDADES
+       ----------------------------------------------------- */
+
+    .specialty-card {
+        padding:
+            24px;
+    }
+
+
+    /* -----------------------------------------------------
+       AVALIAÇÕES
+       ----------------------------------------------------- */
+
+    .testimonial-header h2 {
+        font-size:
+            1.8rem;
+    }
+
+    .testimonial-image {
+        height:
+            270px;
+    }
+
+    .section-badge {
+        font-size:
+            .78rem;
+
+        padding:
+            9px 13px;
+    }
+
+    .testimonial-stars {
+        font-size:
+            1rem;
+
+        letter-spacing:
+            2px;
+    }
+
+    .testimonial-person h3 {
+        font-size:
+            1.3rem;
+    }
+
+}
+
+
+/* =========================================================
+   07. CELULAR MUITO PEQUENO / 390
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .container {
+        width:
+            calc(100% - 20px);
+    }
+
+
+    .hero-text h1 {
+        font-size:
+            2.05rem;
+    }
+
+
+    .hero-buttons {
+        gap:
+            10px;
+    }
+
+
+    .testimonial-showcase {
+        padding:
+            24px 16px 85px;
+    }
+
+
+    .testimonial-image {
+        height:
+            250px;
+    }
+
+
+    .thumb img {
+        width:
+            52px;
+
+        height:
+            52px;
+    }
+
+}
+
+
+/* =========================================================
+   08. CELULAR EXTREMAMENTE PEQUENO / 360
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .container {
+        width:
+            calc(100% - 18px);
+    }
+
+
+    .hero-text h1 {
+        font-size:
+            1.9rem;
+    }
+
+
+    .testimonial-showcase {
+        border-radius:
+            20px;
+
+        padding:
+            20px 14px 80px;
+    }
+
+
+    .testimonial-image {
+        height:
+            225px;
+
+        border-radius:
+            16px;
+    }
+
+
+    .testimonial-content blockquote {
+        font-size:
+            1rem;
+    }
+
+}
+
+
+/* =========================================================
+   09. PERFORMANCE
+   ========================================================= */
+
+.testimonial-showcase,
+.thumb,
+.thumb img {
+
+    backface-visibility:
+        hidden;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/* =========================================================
+   10. REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto !important;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}

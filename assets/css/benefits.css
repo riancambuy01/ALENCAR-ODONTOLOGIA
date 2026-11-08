@@ -1,0 +1,2722 @@
+ /* =========================================================
+    ALENCAR ODONTOLOGIA
+    BENEFITS 4.0
+    LUXURY EDITORIAL / MEDICAL PREMIUM
+    CINEMATIC MOTION SYSTEM
+    ========================================================= */
+
+
+/* =========================================================
+   01 — BASE
+   ========================================================= */
+
+.benefits {
+    height: auto;
+    min-height: unset;
+    padding-bottom: 70px;
+}
+
+
+/* =========================================================
+   02 — ATMOSPHERIC LIGHT
+   ========================================================= */
+
+.benefits-atmosphere {
+
+    position: absolute;
+
+    top: -260px;
+    left: 50%;
+
+    width: min(1100px, 90vw);
+    height: 600px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(103,201,237,.20) 0%,
+            rgba(103,201,237,.08) 30%,
+            rgba(103,201,237,.025) 52%,
+            transparent 73%
+        );
+
+    filter: blur(2px);
+
+    opacity: .9;
+
+    z-index: -2;
+
+    animation:
+        benefitsAtmosphere
+        9s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes benefitsAtmosphere {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(.94);
+
+        opacity: .65;
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.04);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   03 — SUBTLE SECTION GLOW
+   ========================================================= */
+
+.benefits::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 680px;
+    height: 1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(103,201,237,.55),
+            rgba(255,255,255,.9),
+            rgba(103,201,237,.55),
+            transparent
+        );
+
+    box-shadow:
+        0 0 35px rgba(103,201,237,.18);
+
+    opacity: .85;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   04 — INTRO
+   ========================================================= */
+
+.benefits-intro {
+
+    position: relative;
+
+    max-width: 930px;
+
+    margin:
+        0
+        auto
+        clamp(75px, 8vw, 105px);
+
+    text-align: center;
+
+    animation:
+        benefitsIntro
+        1.15s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+@keyframes benefitsIntro {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(45px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   05 — INTRO META
+   ========================================================= */
+
+.benefits-intro-meta {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+.benefits-intro-line {
+
+    position: relative;
+
+    width: 38px;
+    height: 1px;
+
+    overflow: hidden;
+
+    background:
+        rgba(13,59,102,.13);
+}
+
+
+.benefits-intro-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        var(--b-blue-light);
+
+    animation:
+        lineReveal
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        .35s
+        forwards;
+}
+
+
+@keyframes lineReveal {
+
+    to {
+        left: 100%;
+    }
+}
+
+
+.benefits-intro-line:last-child {
+
+    transform:
+        scaleX(-1);
+}
+
+
+/* =========================================================
+   06 — TAG
+   ========================================================= */
+
+.benefits .section-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        8px
+        14px;
+
+    border:
+        1px solid rgba(13,59,102,.075);
+
+    border-radius: 100px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:
+        var(--b-blue);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 8px 28px rgba(13,59,102,.035),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    animation:
+        tagReveal
+        1s
+        cubic-bezier(.16,1,.3,1)
+        .15s
+        both;
+}
+
+
+@keyframes tagReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(.96);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.benefits .section-tag-dot {
+
+    position: relative;
+
+    width: 6px;
+    height: 6px;
+
+    flex: 0 0 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--b-blue-light);
+
+    box-shadow:
+        0 0 0 4px rgba(103,201,237,.10);
+}
+
+
+.benefits .section-tag-dot::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -4px;
+
+    border:
+        1px solid rgba(103,201,237,.25);
+
+    border-radius: 50%;
+
+    animation:
+        dotPulse
+        2.8s
+        ease-out
+        infinite;
+}
+
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        transform: scale(.75);
+
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.65);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   07 — MAIN TITLE
+   ========================================================= */
+
+.benefits-intro .section-title {
+
+    max-width: 880px;
+
+    margin:
+        0
+        auto;
+
+    color:
+        var(--b-blue-deep);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px, 6vw, 78px);
+
+    font-weight: 400;
+
+    line-height:
+        .96;
+
+    letter-spacing:
+        -.058em;
+
+    animation:
+        titleReveal
+        1.25s
+        cubic-bezier(.16,1,.3,1)
+        .2s
+        both;
+}
+
+
+@keyframes titleReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(55px);
+
+        filter:
+            blur(7px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+.benefits-intro .section-title em {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        var(--b-blue);
+
+    font-style: normal;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   08 — DESCRIPTION
+   ========================================================= */
+
+.benefits-intro .section-description {
+
+    max-width: 670px;
+
+    margin:
+        28px
+        auto
+        0;
+
+    color:
+        var(--b-text);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    letter-spacing: .005em;
+
+    animation:
+        descriptionReveal
+        1s
+        cubic-bezier(.16,1,.3,1)
+        .42s
+        both;
+}
+
+
+@keyframes descriptionReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(22px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   09 — MAIN EXPERIENCE
+   ========================================================= */
+
+.benefits-experience {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.08fr)
+        minmax(390px, .92fr);
+
+    align-items: center;
+
+    gap:
+        clamp(55px, 8vw, 120px);
+
+    max-width: 1340px;
+
+    margin:
+        0
+        auto;
+}
+
+
+/* =========================================================
+   10 — VISUAL
+   ========================================================= */
+
+.benefits-visual {
+
+    position: relative;
+
+    padding-left: 25px;
+
+    animation:
+        visualReveal
+        1.35s
+        cubic-bezier(.16,1,.3,1)
+        .25s
+        both;
+}
+
+
+@keyframes visualReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            scale(.985);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   11 — VERTICAL NUMBER
+   ========================================================= */
+
+.benefits-visual-number {
+
+    position: absolute;
+
+    top: 32px;
+    left: 0;
+
+    z-index: 5;
+
+    writing-mode:
+        vertical-rl;
+
+    color:
+        rgba(13,59,102,.36);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .22em;
+
+    opacity: 0;
+
+    animation:
+        numberReveal
+        .8s
+        ease
+        1s
+        forwards;
+}
+
+
+@keyframes numberReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   12 — IMAGE FRAME
+   ========================================================= */
+
+.benefits-image {
+
+    position: relative;
+
+    overflow: hidden;
+
+    height:
+        clamp(500px, 42vw, 620px);
+
+    background:
+        #e9f2f5;
+
+    box-shadow:
+        0 35px 90px rgba(8,43,75,.11),
+        0 10px 30px rgba(8,43,75,.05);
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   13 — ARCHITECTURAL FRAME
+   ========================================================= */
+
+.benefits-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    width: 105px;
+    height: 105px;
+
+    border-top:
+        1px solid rgba(255,255,255,.80);
+
+    border-left:
+        1px solid rgba(255,255,255,.80);
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    opacity: .8;
+}
+
+
+.benefits-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 18px;
+    bottom: 18px;
+
+    width: 105px;
+    height: 105px;
+
+    border-right:
+        1px solid rgba(255,255,255,.55);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.55);
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   14 — IMAGE
+   ========================================================= */
+
+.benefits-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform:
+        scale(1.025);
+
+    filter:
+        saturate(.90)
+        contrast(.98)
+        brightness(.99);
+
+    transition:
+        transform 1.8s cubic-bezier(.16,1,.3,1),
+        filter 1s ease;
+}
+
+
+.benefits-image:hover img {
+
+    transform:
+        scale(1.075);
+
+    filter:
+        saturate(1)
+        contrast(1.015)
+        brightness(1.01);
+}
+
+
+/* =========================================================
+   15 — CINEMATIC LIGHT
+   ========================================================= */
+
+.benefits-image-gradient {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(6,43,77,.015) 0%,
+            rgba(6,43,77,0) 43%,
+            rgba(6,43,77,.42) 100%
+        );
+}
+
+
+/* =========================================================
+   16 — IMAGE LIGHT SWEEP
+   ========================================================= */
+
+.benefits-image-gradient::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -30%;
+    left: -80%;
+
+    width: 45%;
+    height: 170%;
+
+    transform:
+        rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    filter:
+        blur(8px);
+
+    opacity: 0;
+
+    transition:
+        left 1.4s cubic-bezier(.16,1,.3,1),
+        opacity .4s ease;
+}
+
+
+.benefits-image:hover
+.benefits-image-gradient::after {
+
+    left: 145%;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   17 — IMAGE CAPTION
+   ========================================================= */
+
+.benefits-image-caption {
+
+    position: absolute;
+
+    left: 30px;
+    bottom: 30px;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        15px
+        19px;
+
+    border-left:
+        2px solid var(--b-blue-light);
+
+    background:
+        rgba(5,27,45,.58);
+
+    color:
+        white;
+
+    backdrop-filter:
+        blur(18px)
+        saturate(125%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(125%);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.12);
+
+    transition:
+        transform .6s cubic-bezier(.16,1,.3,1),
+        background .5s ease;
+}
+
+
+.benefits-image:hover
+.benefits-image-caption {
+
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(5,27,45,.68);
+}
+
+
+.benefits-image-caption strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .10em;
+
+    text-transform: uppercase;
+}
+
+
+.benefits-image-caption span {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size: 9px;
+
+    letter-spacing: .02em;
+}
+
+
+.benefits-caption-mark {
+
+    position: relative;
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--b-blue-light);
+
+    box-shadow:
+        0 0 0 5px rgba(103,201,237,.08);
+}
+
+
+/* =========================================================
+   18 — DETAILS
+   ========================================================= */
+
+.benefits-details {
+
+    max-width: 570px;
+
+    padding-top: 2px;
+
+    animation:
+        detailsReveal
+        1.25s
+        cubic-bezier(.16,1,.3,1)
+        .42s
+        both;
+}
+
+
+@keyframes detailsReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(45px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   19 — DETAIL INTRO
+   ========================================================= */
+
+.benefits-detail-intro {
+
+    margin-bottom:
+        43px;
+}
+
+
+.benefits-detail-kicker {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 16px;
+
+    color:
+        var(--b-blue-light);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .19em;
+
+    text-transform: uppercase;
+}
+
+
+.benefits-detail-kicker::before {
+
+    content: "";
+
+    width: 25px;
+    height: 1px;
+
+    background:
+        var(--b-blue-light);
+
+    box-shadow:
+        0 0 12px rgba(103,201,237,.25);
+}
+
+
+.benefits-detail-intro h3 {
+
+    margin: 0 0 19px;
+
+    color:
+        var(--b-blue-deep);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(34px, 3.2vw, 46px);
+
+    font-weight: 400;
+
+    line-height: 1.03;
+
+    letter-spacing: -.04em;
+}
+
+
+.benefits-detail-intro h3 strong {
+
+    display: block;
+
+    font-weight: 600;
+
+    color:
+        var(--b-blue);
+}
+
+
+.benefits-detail-intro p {
+
+    max-width: 510px;
+
+    margin: 0;
+
+    color:
+        var(--b-text);
+
+    font-size: 13px;
+
+    line-height: 1.82;
+}
+
+
+/* =========================================================
+   20 — FEATURE
+   ========================================================= */
+
+.benefit-feature {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        34px
+        1fr;
+
+    gap: 20px;
+
+    padding:
+        30px
+        0;
+
+    border-top:
+        1px solid rgba(13,59,102,.10);
+
+    transition:
+        padding-left .55s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature:last-child {
+
+    border-bottom:
+        1px solid rgba(13,59,102,.10);
+}
+
+
+.benefit-feature::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 0;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        var(--b-blue-light);
+
+    transition:
+        width .65s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature:hover::before {
+
+    width: 70px;
+}
+
+
+.benefit-feature:hover {
+
+    padding-left: 8px;
+}
+
+
+/* =========================================================
+   21 — INDEX
+   ========================================================= */
+
+.benefit-feature-index {
+
+    padding-top: 5px;
+
+    color:
+        rgba(13,59,102,.36);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+
+    transition:
+        color .4s ease,
+        transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature:hover
+.benefit-feature-index {
+
+    color:
+        var(--b-blue-light);
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   22 — HEADING
+   ========================================================= */
+
+.benefit-feature-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   23 — ICON
+   ========================================================= */
+
+.benefit-feature-icon {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 43px;
+    height: 43px;
+
+    flex: 0 0 43px;
+
+    border:
+        1px solid rgba(13,59,102,.10);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.92);
+
+    box-shadow:
+        0 10px 28px rgba(13,59,102,.055);
+
+    transition:
+        transform .55s cubic-bezier(.16,1,.3,1),
+        border-color .4s ease,
+        box-shadow .5s ease;
+}
+
+
+.benefit-feature-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -4px;
+
+    border:
+        1px solid rgba(103,201,237,.0);
+
+    border-radius: 50%;
+
+    transition:
+        transform .55s cubic-bezier(.16,1,.3,1),
+        border-color .4s ease;
+}
+
+
+.benefit-feature:hover
+.benefit-feature-icon {
+
+    transform:
+        translateY(-3px)
+        rotate(-4deg);
+
+    border-color:
+        rgba(103,201,237,.30);
+
+    box-shadow:
+        0 14px 32px rgba(13,59,102,.09);
+}
+
+
+.benefit-feature:hover
+.benefit-feature-icon::before {
+
+    transform:
+        scale(1.08);
+
+    border-color:
+        rgba(103,201,237,.20);
+}
+
+
+.benefit-feature-icon svg {
+
+    width: 18px;
+    height: 18px;
+
+    stroke:
+        var(--b-blue);
+
+    stroke-width:
+        1.35;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+
+    transition:
+        transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature:hover
+.benefit-feature-icon svg {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   24 — FEATURE TITLE
+   ========================================================= */
+
+.benefit-feature h4 {
+
+    margin: 0;
+
+    color:
+        var(--b-blue-deep);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    letter-spacing: -.025em;
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1),
+        color .4s ease;
+}
+
+
+.benefit-feature:hover h4 {
+
+    transform:
+        translateX(3px);
+
+    color:
+        var(--b-blue);
+}
+
+
+/* =========================================================
+   25 — FEATURE TEXT
+   ========================================================= */
+
+.benefit-feature p {
+
+    max-width: 490px;
+
+    margin:
+        0
+        0
+        17px;
+
+    color:
+        var(--b-text);
+
+    font-size: 12.5px;
+
+    line-height: 1.78;
+}
+
+
+/* =========================================================
+   26 — FEATURE TAGS
+   ========================================================= */
+
+.benefit-feature-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.benefit-feature-tags span {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        6px
+        9px;
+
+    border:
+        1px solid rgba(13,59,102,.075);
+
+    background:
+        #f8fbfc;
+
+    color:
+        #607480;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8.5px;
+
+    font-weight: 600;
+
+    letter-spacing: .025em;
+
+    transition:
+        color .35s ease,
+        border-color .35s ease,
+        transform .4s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature-tags span::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0;
+
+    background:
+        rgba(103,201,237,.08);
+
+    transition:
+        height .45s cubic-bezier(.16,1,.3,1);
+}
+
+
+.benefit-feature-tags span:hover {
+
+    color:
+        var(--b-blue);
+
+    border-color:
+        rgba(103,201,237,.25);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.benefit-feature-tags span:hover::before {
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   27 — AUTHORITY
+   ========================================================= */
+
+.benefits-authority {
+
+    max-width: 1340px;
+
+    margin:
+        clamp(90px, 10vw, 125px)
+        auto
+        0;
+
+    animation:
+        authorityReveal
+        1.1s
+        cubic-bezier(.16,1,.3,1)
+        .65s
+        both;
+}
+
+
+@keyframes authorityReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   28 — AUTHORITY INTRO
+   ========================================================= */
+
+.authority-intro {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 23px;
+
+    color:
+        var(--b-muted);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .17em;
+
+    text-transform: uppercase;
+}
+
+
+.authority-line {
+
+    position: relative;
+
+    width: 30px;
+    height: 1px;
+
+    background:
+        var(--b-blue-light);
+}
+
+
+/* =========================================================
+   29 — AUTHORITY GRID
+   ========================================================= */
+
+.authority-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    border-top:
+        1px solid rgba(13,59,102,.11);
+
+    border-bottom:
+        1px solid rgba(13,59,102,.11);
+}
+
+
+/* =========================================================
+   30 — AUTHORITY ITEM
+   ========================================================= */
+
+.authority-item {
+
+    position: relative;
+
+    padding:
+        30px;
+
+    border-right:
+        1px solid rgba(13,59,102,.10);
+
+    transition:
+        background .45s ease,
+        transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+
+.authority-item:first-child {
+
+    padding-left: 0;
+}
+
+
+.authority-item:last-child {
+
+    border-right: 0;
+}
+
+
+.authority-item::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 30px;
+    bottom: -1px;
+
+    width: 0;
+    height: 2px;
+
+    background:
+        var(--b-blue-light);
+
+    transition:
+        width .6s cubic-bezier(.16,1,.3,1);
+}
+
+
+.authority-item:hover {
+
+    background:
+        rgba(103,201,237,.025);
+
+    transform:
+        translateY(-3px);
+}
+
+
+.authority-item:hover::after {
+
+    width: 34px;
+}
+
+
+.authority-item:not(:first-child) {
+
+    padding-left: 30px;
+}
+
+
+/* =========================================================
+   31 — AUTHORITY NUMBER
+   ========================================================= */
+
+.authority-item strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--b-blue-deep);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(30px, 3vw, 38px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -.045em;
+}
+
+
+.authority-item strong span {
+
+    color:
+        var(--b-blue-light);
+
+    transition:
+        color .4s ease;
+}
+
+
+.authority-item:hover
+strong span {
+
+    color:
+        var(--b-blue);
+}
+
+
+/* =========================================================
+   32 — AUTHORITY LABEL
+   ========================================================= */
+
+.authority-item > span {
+
+    display: block;
+
+    color:
+        #778994;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8.5px;
+
+    font-weight: 700;
+
+    letter-spacing: .10em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   33 — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .benefits-experience {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(350px, .9fr);
+
+        gap: 55px;
+    }
+
+
+    .benefits-image {
+
+        height: 520px;
+    }
+
+}
+
+
+/* =========================================================
+   34 — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .benefits {
+
+        padding:
+            95px
+            0
+            100px;
+    }
+
+
+    .benefits-experience {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 60px;
+    }
+
+
+    .benefits-visual {
+
+        padding-left: 18px;
+    }
+
+
+    .benefits-image {
+
+        height: 520px;
+    }
+
+
+    .benefits-details {
+
+        max-width: 720px;
+    }
+
+
+    .benefits-authority {
+
+        margin-top: 80px;
+    }
+
+}
+
+
+/* =========================================================
+   35 — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .benefits {
+
+        padding:
+            72px
+            0
+            78px;
+    }
+
+
+    .benefits::before {
+
+        width: 300px;
+    }
+
+
+    .benefits-atmosphere {
+
+        width: 650px;
+
+        top: -130px;
+    }
+
+
+    .benefits-intro {
+
+        margin-bottom: 52px;
+    }
+
+
+    .benefits-intro-meta {
+
+        gap: 9px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .benefits-intro-line {
+
+        width: 20px;
+    }
+
+
+    .benefits .section-tag {
+
+        padding:
+            7px
+            11px;
+
+        font-size: 8px;
+
+        letter-spacing: .12em;
+    }
+
+
+    .benefits-intro .section-title {
+
+        font-size:
+            clamp(40px, 11vw, 53px);
+
+        line-height: .98;
+    }
+
+
+    .benefits-intro .section-description {
+
+        margin-top: 20px;
+
+        font-size: 12px;
+
+        line-height: 1.78;
+    }
+
+
+    .benefits-experience {
+
+        gap: 48px;
+    }
+
+
+    .benefits-visual {
+
+        padding-left: 0;
+    }
+
+
+    .benefits-visual-number {
+
+        display: none;
+    }
+
+
+    .benefits-image {
+
+        height: 390px;
+    }
+
+
+    .benefits-image::before {
+
+        top: 12px;
+        left: 12px;
+
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .benefits-image::after {
+
+        right: 12px;
+        bottom: 12px;
+
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .benefits-image-caption {
+
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+
+        padding:
+            12px
+            13px;
+    }
+
+
+    .benefits-detail-intro {
+
+        margin-bottom: 30px;
+    }
+
+
+    .benefits-detail-kicker {
+
+        font-size: 8px;
+    }
+
+
+    .benefits-detail-intro h3 {
+
+        font-size: 30px;
+    }
+
+
+    .benefits-detail-intro p {
+
+        font-size: 12px;
+    }
+
+
+    .benefit-feature {
+
+        grid-template-columns:
+            25px
+            1fr;
+
+        gap: 10px;
+
+        padding:
+            25px
+            0;
+    }
+
+
+    .benefit-feature:hover {
+
+        padding-left: 4px;
+    }
+
+
+    .benefit-feature-heading {
+
+        gap: 11px;
+    }
+
+
+    .benefit-feature-icon {
+
+        width: 38px;
+        height: 38px;
+
+        flex-basis: 38px;
+    }
+
+
+    .benefit-feature-icon svg {
+
+        width: 16px;
+        height: 16px;
+    }
+
+
+    .benefit-feature h4 {
+
+        font-size: 19px;
+    }
+
+
+    .benefit-feature p {
+
+        font-size: 11.5px;
+
+        line-height: 1.72;
+    }
+
+
+    .benefit-feature-tags {
+
+        gap: 5px;
+    }
+
+
+    .benefit-feature-tags span {
+
+        padding:
+            5px
+            7px;
+
+        font-size: 7.5px;
+    }
+
+
+    .benefits-authority {
+
+        margin-top: 62px;
+    }
+
+
+    .authority-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .authority-item,
+    .authority-item:not(:first-child) {
+
+        padding:
+            23px
+            17px;
+    }
+
+
+    .authority-item:first-child {
+
+        padding-left: 17px;
+    }
+
+
+    .authority-item:nth-child(2) {
+
+        border-right: 0;
+    }
+
+
+    .authority-item:nth-child(1),
+    .authority-item:nth-child(2) {
+
+        border-bottom:
+            1px solid rgba(13,59,102,.10);
+    }
+
+
+    .authority-item:nth-child(3),
+    .authority-item:nth-child(4) {
+
+        border-bottom: 0;
+    }
+
+
+    .authority-item strong {
+
+        font-size: 28px;
+    }
+
+
+    .authority-item > span {
+
+        font-size: 7.5px;
+
+        letter-spacing: .065em;
+    }
+
+}
+
+
+/* =========================================================
+   36 — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .benefits {
+
+        padding-top: 62px;
+    }
+
+
+    .benefits-intro .section-title {
+
+        font-size: 38px;
+    }
+
+
+    .benefits-image {
+
+        height: 345px;
+    }
+
+
+    .benefits-detail-intro h3 {
+
+        font-size: 28px;
+    }
+
+
+    .benefit-feature h4 {
+
+        font-size: 18px;
+    }
+
+
+    .authority-item strong {
+
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   37 — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .benefits *,
+    .benefits *::before,
+    .benefits *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+
+}
+
+/* =========================================================
+   ALENCAR ODONTOLOGIA
+   HERO → BENEFITS
+   CONTINUOUS EXPERIENCE SYSTEM 5.0
+   ========================================================= */
+
+
+/* =========================================================
+   01 — HERO + BENEFITS
+   MESMA ATMOSFERA
+   ========================================================= */
+
+.hero,
+.benefits {
+
+    position: relative;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   02 — CORREÇÃO DO HERO
+   REMOVE O "ABISMO" ENTRE CONTEÚDO E PRÓXIMA SEÇÃO
+   ========================================================= */
+
+.hero {
+
+    min-height: auto !important;
+    height: auto !important;
+
+    padding-bottom:
+        clamp(70px, 7vw, 105px) !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fcfd 0%,
+            #f4fbfd 38%,
+            #eef9fc 72%,
+            #edf8fb 100%
+        ) !important;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   03 — ATMOSFERA DO HERO
+   ========================================================= */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -180px;
+
+    width: min(1250px, 95vw);
+    height: 430px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(103,201,237,.17) 0%,
+            rgba(103,201,237,.10) 28%,
+            rgba(103,201,237,.045) 50%,
+            transparent 74%
+        );
+
+    filter:
+        blur(18px);
+
+    opacity: .9;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   04 — BENEFITS
+   NÃO DEVE PARECER OUTRO BLOCO
+   ========================================================= */
+
+.benefits {
+
+    margin-top: -1px !important;
+
+    padding-top:
+        clamp(45px, 5vw, 72px) !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #edf8fb 0%,
+            #f3fafc 15%,
+            #f8fcfd 34%,
+            #ffffff 68%,
+            #ffffff 100%
+        ) !important;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   05 — GRANDE FAIXA DE TRANSIÇÃO
+   HERO ENTRA DENTRO DO BENEFITS
+   ========================================================= */
+
+.benefits::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -190px;
+    left: 50%;
+
+    width: min(1500px, 120vw);
+    height: 400px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(103,201,237,.16) 0%,
+            rgba(103,201,237,.085) 27%,
+            rgba(103,201,237,.035) 48%,
+            transparent 72%
+        );
+
+    filter:
+        blur(10px);
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   06 — REMOVE A ANTIGA LINHA DE DIVISÃO
+   ========================================================= */
+
+.benefits > .container::before {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   07 — INTRO
+   SOBE PARA ENTRAR NA ATMOSFERA DO HERO
+   ========================================================= */
+
+.benefits-intro {
+
+    position: relative;
+
+    margin-top: 0 !important;
+
+    margin-bottom:
+        clamp(62px, 7vw, 95px) !important;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   08 — PEQUENA LINHA EDITORIAL
+   AGORA MUITO MAIS DISCRETA
+   ========================================================= */
+
+.benefits-intro-line {
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(13,59,102,.12)
+        ) !important;
+}
+
+
+.benefits-intro-line:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(13,59,102,.12)
+        ) !important;
+}
+
+
+/* =========================================================
+   09 — TAG
+   MENOS "BOTÃO", MAIS EDITORIAL
+   ========================================================= */
+
+.benefits .section-tag {
+
+    background:
+        rgba(255,255,255,.58) !important;
+
+    border-color:
+        rgba(13,59,102,.065) !important;
+
+    box-shadow:
+        0 10px 30px rgba(13,59,102,.025),
+        inset 0 1px 0 rgba(255,255,255,.95) !important;
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   10 — TÍTULO
+   MAIS PRÓXIMO DO HERO
+   ========================================================= */
+
+.benefits-intro .section-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-wrap: balance;
+}
+
+
+/* =========================================================
+   11 — HALO ATRÁS DO TÍTULO
+   QUASE IMPERCEPTÍVEL
+   ========================================================= */
+
+.benefits-intro::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 35px;
+    left: 50%;
+
+    width: 650px;
+    height: 280px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(103,201,237,.075),
+            transparent 70%
+        );
+
+    filter:
+        blur(25px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   12 — DESCRIPTION
+   ========================================================= */
+
+.benefits-intro .section-description {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   13 — EXPERIÊNCIA
+   ========================================================= */
+
+.benefits-experience {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   14 — IMAGEM
+   FAZ A IMAGEM NASCER NATURALMENTE
+   ========================================================= */
+
+.benefits-visual {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   15 — SOMBRA DA IMAGEM
+   MAIS CINEMATOGRÁFICA
+   ========================================================= */
+
+.benefits-image {
+
+    box-shadow:
+        0 40px 100px rgba(8,43,75,.10),
+        0 15px 35px rgba(8,43,75,.045) !important;
+}
+
+
+/* =========================================================
+   16 — LUZ ATRÁS DA IMAGEM
+   ========================================================= */
+
+.benefits-visual::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 115%;
+    height: 90%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(103,201,237,.11),
+            transparent 67%
+        );
+
+    filter:
+        blur(35px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   17 — DETAILS
+   ========================================================= */
+
+.benefits-details {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   18 — AUTHORITY
+   ========================================================= */
+
+.benefits-authority {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   19 — MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        padding-bottom:
+            65px !important;
+    }
+
+
+    .benefits {
+
+        padding-top:
+            48px !important;
+    }
+
+
+    .benefits::before {
+
+        top: -120px;
+
+        height: 300px;
+    }
+
+
+    .benefits-intro::before {
+
+        width: 450px;
+        height: 220px;
+    }
+
+}
+
+
+/* =========================================================
+   20 — MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .hero {
+
+        padding-bottom:
+            48px !important;
+    }
+
+
+    .benefits {
+
+        padding-top:
+            38px !important;
+    }
+
+
+    .benefits::before {
+
+        top: -90px;
+
+        width: 800px;
+        height: 250px;
+    }
+
+
+    .benefits-intro {
+
+        margin-bottom:
+            48px !important;
+    }
+
+
+    .benefits-intro::before {
+
+        width: 360px;
+        height: 190px;
+    }
+
+}
+
+
+/* =========================================================
+   21 — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero::after,
+    .benefits::before,
+    .benefits-intro::before,
+    .benefits-visual::after {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}
+
+/* =========================================================
+   TRANSIÇÃO BENEFITS → ESPECIALIDADES
+   ========================================================= */
+
+.benefits {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            850px 450px at 50% 100%,
+            rgba(103, 201, 237, 0.20),
+            transparent 72%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0) 0%,
+            rgba(239,249,253,0.45) 65%,
+            rgba(230,247,253,0.78) 100%
+        );
+}
+
+/*
+   Luz que começa no final de Benefits
+   e invade a próxima seção.
+*/
+
+.benefits::after {
+    content: "";
+    position: absolute;
+
+    left: -10%;
+    right: -10%;
+    bottom: -180px;
+
+    height: 360px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(103, 201, 237, 0.24) 0%,
+            rgba(103, 201, 237, 0.12) 30%,
+            transparent 72%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================================================
+   PONTE VISUAL ENTRE SEÇÕES
+   ========================================================= */
+
+.benefits + .specialties {
+    position: relative;
+
+    margin-top: -1px;
+
+    border-top: 0;
+}
+
+.benefits + .specialties::before {
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+    left: 0;
+    right: 0;
+
+    height: 180px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(230,247,253,0),
+            rgba(230,247,253,0.65)
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}

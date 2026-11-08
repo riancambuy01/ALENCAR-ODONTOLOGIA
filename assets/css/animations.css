@@ -1,0 +1,53 @@
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.hero-text{
+
+animation:fadeUp .8s ease forwards;
+
+}
+
+.hero-image{
+
+animation:fadeUp 1.2s ease forwards;
+
+}

@@ -1,0 +1,530 @@
+/* =========================================================
+   ALENCAR ODONTOLOGIA
+   BUTTON SYSTEM 3.0
+   PREMIUM CINEMATIC / VFX
+   ========================================================= */
+
+:root {
+    --button-blue: #67c9ed;
+    --button-blue-light: #b9edff;
+    --button-blue-soft: #e5f8ff;
+    --button-blue-dark: #0d4b70;
+
+    --button-black: #080a0c;
+    --button-black-light: #15191c;
+    --button-black-dark: #000000;
+
+    --button-white: #ffffff;
+
+    --button-shadow: rgba(13, 75, 112, 0.14);
+    --button-shadow-hover: rgba(0, 0, 0, 0.24);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.btn {
+    position: relative;
+    isolation: isolate;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 58px;
+    padding: 16px 34px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transform: translateZ(0);
+
+    transition:
+        transform 0.55s cubic-bezier(.16, 1, .3, 1),
+        box-shadow 0.55s ease,
+        border-color 0.45s ease,
+        color 0.35s ease;
+}
+
+
+/* =========================================================
+   PRIMARY
+   ========================================================= */
+
+.btn-primary {
+
+    color: var(--button-white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--button-blue-dark) 0%,
+            #17658d 48%,
+            var(--button-blue) 100%
+        );
+
+    border-color: rgba(103, 201, 237, 0.45);
+
+    box-shadow:
+        0 12px 30px var(--button-shadow),
+        inset 0 1px 0 rgba(255,255,255,0.24),
+        inset 0 -1px 0 rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.55s cubic-bezier(.16, 1, .3, 1),
+        box-shadow 0.55s ease,
+        border-color 0.45s ease;
+}
+
+
+/* =========================================================
+   PRIMARY — LUZ INTERNA
+   ========================================================= */
+
+.btn-primary::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(255,255,255,0.35),
+            transparent 38%
+        );
+
+    opacity: 0.8;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.8s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================================================
+   PRIMARY — SHINE CINEMATOGRÁFICO
+   ========================================================= */
+
+.btn-primary::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -80%;
+
+    width: 55%;
+    height: 340%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.55),
+            rgba(255,255,255,0.12),
+            transparent
+        );
+
+    transform: rotate(18deg) translateX(-120%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 1.15s cubic-bezier(.16,1,.3,1),
+        opacity 0.35s ease;
+}
+
+
+/* =========================================================
+   PRIMARY — HOVER
+   ========================================================= */
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    border-color:
+        rgba(185, 237, 255, 0.8);
+
+    box-shadow:
+        0 20px 45px rgba(13,75,112,0.22),
+        0 4px 15px rgba(103,201,237,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+
+.btn-primary:hover::before {
+
+    opacity: 1;
+
+    transform:
+        scale(1.15);
+}
+
+
+.btn-primary:hover::after {
+
+    opacity: 1;
+
+    transform:
+        rotate(18deg)
+        translateX(430%);
+}
+
+
+/* =========================================================
+   SECONDARY
+   PREMIUM BLACK FILL
+   ========================================================= */
+
+.btn-secondary,
+.image-overlay a {
+
+    position: relative;
+
+    color: var(--button-blue-dark);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.98),
+            rgba(245,251,253,0.98)
+        );
+
+    border:
+        1px solid rgba(13,75,112,0.18);
+
+    box-shadow:
+        0 10px 28px rgba(13,75,112,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: hidden;
+
+    transition:
+        color 0.65s ease,
+        border-color 0.65s ease,
+        transform 0.65s cubic-bezier(.16,1,.3,1),
+        box-shadow 0.65s ease;
+}
+
+
+/* =========================================================
+   BLACK FILL — SOBE LENTAMENTE
+   ========================================================= */
+
+.btn-secondary::before,
+.image-overlay a::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    left: -5%;
+    bottom: -110%;
+
+    width: 110%;
+    height: 110%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--button-black-light) 0%,
+            var(--button-black) 55%,
+            var(--button-black-dark) 100%
+        );
+
+    border-radius: 50% 50% 0 0;
+
+    transform:
+        scaleX(1.08)
+        translateY(0);
+
+    transition:
+        bottom 1.15s cubic-bezier(.16,1,.3,1),
+        border-radius 1.15s ease;
+}
+
+
+/* =========================================================
+   SECONDARY — LUZ VFX
+   ========================================================= */
+
+.btn-secondary::after,
+.image-overlay a::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: -180%;
+    left: -70%;
+
+    width: 45%;
+    height: 460%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.04) 25%,
+            rgba(255,255,255,0.28) 48%,
+            rgba(255,255,255,0.06) 65%,
+            transparent 100%
+        );
+
+    transform:
+        rotate(18deg)
+        translateX(-180%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 1.35s cubic-bezier(.16,1,.3,1),
+        opacity 0.45s ease;
+}
+
+
+/* =========================================================
+   SECONDARY — HOVER
+   ========================================================= */
+
+.btn-secondary:hover,
+.image-overlay a:hover {
+
+    color: var(--button-white);
+
+    border-color:
+        rgba(0,0,0,0.9);
+
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    box-shadow:
+        0 18px 42px var(--button-shadow-hover),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+
+/* =========================================================
+   PREENCHE COMPLETAMENTE
+   ========================================================= */
+
+.btn-secondary:hover::before,
+.image-overlay a:hover::before {
+
+    bottom: 0;
+
+    border-radius:
+        0;
+}
+
+
+/* =========================================================
+   SHINE PASSANDO PELO BOTÃO
+   ========================================================= */
+
+.btn-secondary:hover::after,
+.image-overlay a:hover::after {
+
+    opacity: 1;
+
+    transform:
+        rotate(18deg)
+        translateX(430%);
+}
+
+
+/* =========================================================
+   ACTIVE
+   ========================================================= */
+
+.btn:active {
+
+    transform:
+        translateY(-1px)
+        scale(0.985);
+
+    transition-duration: 0.12s;
+}
+
+
+/* =========================================================
+   FOCUS — ACESSIBILIDADE
+   ========================================================= */
+
+.btn:focus-visible {
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 4px rgba(103,201,237,0.20),
+        0 12px 30px rgba(13,75,112,0.16);
+}
+
+
+/* =========================================================
+   ARROW / ÍCONE SE EXISTIR
+   ========================================================= */
+
+.btn svg,
+.btn i {
+
+    position: relative;
+    z-index: 3;
+
+    transition:
+        transform 0.5s cubic-bezier(.16,1,.3,1);
+}
+
+
+.btn:hover svg,
+.btn:hover i {
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   TEXTO SEMPRE ACIMA DO VFX
+   ========================================================= */
+
+.btn span,
+.btn:not(:has(span)) {
+
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =========================================================
+   DESKTOP — MICRO INTERAÇÃO
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .btn-primary,
+    .btn-secondary,
+    .image-overlay a {
+
+        will-change:
+            transform,
+            box-shadow;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .btn {
+
+        min-height: 54px;
+
+        padding:
+            15px 28px;
+
+        font-size:
+            0.92rem;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .btn {
+
+        min-height: 52px;
+
+        padding:
+            14px 24px;
+
+        font-size:
+            0.9rem;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .image-overlay a:hover {
+
+        transform:
+            translateY(-2px)
+            scale(1.01);
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .btn,
+    .btn::before,
+    .btn::after,
+    .btn svg,
+    .btn i,
+    .image-overlay a,
+    .image-overlay a::before,
+    .image-overlay a::after {
+
+        transition:
+            none !important;
+
+        animation:
+            none !important;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .image-overlay a:hover {
+
+        transform:
+            none;
+    }
+
+}

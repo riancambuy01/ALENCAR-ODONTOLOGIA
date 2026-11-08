@@ -1,0 +1,1450 @@
+/* =========================================================
+   ALENCAR ODONTOLOGIA
+   ABOUT / CLÍNICA 7.0
+   EDITORIAL • PREMIUM • CINEMATIC
+   ========================================================= */
+
+
+/* =========================================================
+   01. VARIÁVEIS
+   ========================================================= */
+
+.about {
+
+    --about-navy: #0d3b66;
+    --about-navy-dark: #082b4b;
+
+    --about-blue: #67c9ed;
+    --about-blue-light: #b9edff;
+
+    --about-gold: #d4af37;
+
+    --about-text: #102f49;
+    --about-muted: #687d8d;
+
+    --about-line: rgba(13,59,102,.10);
+
+    --about-white: #ffffff;
+    --about-paper: #f7fbfd;
+
+    position: relative;
+
+    isolation: isolate;
+
+    width: 100%;
+
+    padding:
+        150px 0 150px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            850px 500px
+            at 8% 45%,
+            rgba(103,201,237,.10),
+            transparent 72%
+        ),
+
+        radial-gradient(
+            900px 550px
+            at 92% 55%,
+            rgba(13,59,102,.045),
+            transparent 72%
+        ),
+
+        linear-gradient(
+            180deg,
+            #f7fbfd 0%,
+            #ffffff 48%,
+            #f8fbfd 100%
+        );
+
+}
+
+
+/* =========================================================
+   02. ATMOSFERA
+   ========================================================= */
+
+.about::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1000px;
+    height: 650px;
+
+    top: -280px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border:
+        1px solid
+        rgba(103,201,237,.13);
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+
+}
+
+
+.about::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1500px;
+    height: 900px;
+
+    right: -600px;
+    bottom: -500px;
+
+    border:
+        1px solid
+        rgba(13,59,102,.045);
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+
+}
+
+
+/* =========================================================
+   03. GRID PRINCIPAL
+   ========================================================= */
+
+.about-grid {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(420px, .95fr);
+
+    gap:
+        clamp(60px, 7vw, 110px);
+
+    align-items:
+        center;
+
+}
+
+
+/* =========================================================
+   04. IMAGEM
+   ========================================================= */
+
+.about-image {
+
+    position: relative;
+
+    isolation: isolate;
+
+    min-height:
+        620px;
+
+}
+
+
+/* moldura editorial */
+
+.about-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 88%;
+
+    height: 88%;
+
+    left: 6%;
+    top: 6%;
+
+    border:
+        1px solid
+        rgba(103,201,237,.35);
+
+    transform:
+        translate(
+            18px,
+            18px
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+
+}
+
+
+/* luz atrás da imagem */
+
+.about-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    left: 15%;
+    top: 15%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(103,201,237,.18),
+            transparent 70%
+        );
+
+    filter:
+        blur(45px);
+
+    pointer-events:
+        none;
+
+    z-index:
+        -2;
+
+}
+
+
+/* =========================================================
+   05. IMAGEM PRINCIPAL
+   ========================================================= */
+
+.about-image img {
+
+    width: 100%;
+    height: 620px;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+    border:
+        1px solid
+        rgba(13,59,102,.10);
+
+    border-radius:
+        3px;
+
+    box-shadow:
+
+        0 35px 90px
+        rgba(8,43,75,.12);
+
+    transform:
+        scale(1.005);
+
+    transition:
+
+        transform
+        1.4s
+        cubic-bezier(.16,1,.3,1),
+
+        box-shadow
+        .8s
+        ease;
+
+}
+
+
+/* =========================================================
+   06. BADGE DE EXPERIÊNCIA
+   ========================================================= */
+
+.experience-badge {
+
+    position: absolute;
+
+    left:
+        -28px;
+
+    bottom:
+        42px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    min-width:
+        145px;
+
+    min-height:
+        145px;
+
+    padding:
+        22px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(8,43,75,.14);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    z-index:
+        5;
+
+}
+
+
+.experience-badge::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset:
+        8px;
+
+    border:
+        1px solid
+        rgba(103,201,237,.25);
+
+    pointer-events:
+        none;
+
+}
+
+
+.experience-badge strong {
+
+    position:
+        relative;
+
+    display:
+        block;
+
+    color:
+        var(--about-navy);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        42px;
+
+    line-height:
+        .9;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -.04em;
+
+}
+
+
+.experience-badge span {
+
+    position:
+        relative;
+
+    display:
+        block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--about-muted);
+
+    font-size:
+        8px;
+
+    line-height:
+        1.5;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .16em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   07. CONTEÚDO
+   ========================================================= */
+
+.about-content {
+
+    position:
+        relative;
+
+    max-width:
+        610px;
+
+}
+
+
+/* =========================================================
+   08. TAG
+   ========================================================= */
+
+.about-content .section-tag {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        28px;
+
+    color:
+        var(--about-navy);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .25em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.about-content .section-tag::before {
+
+    content: "";
+
+    width:
+        32px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--about-blue)
+        );
+
+}
+
+
+/* =========================================================
+   09. TÍTULO
+   ========================================================= */
+
+.about-content h1 {
+
+    position:
+        relative;
+
+    margin:
+        0;
+
+    color:
+        var(--about-text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            48px,
+            5vw,
+            72px
+        );
+
+    font-weight:
+        400;
+
+    line-height:
+        .98;
+
+    letter-spacing:
+        -.055em;
+
+}
+
+
+/* segunda linha */
+
+.about-content h1 span {
+
+    display:
+        block;
+
+    color:
+        var(--about-navy);
+
+    font-weight:
+        600;
+
+}
+
+
+/* linha editorial */
+
+.about-content h1::after {
+
+    content:
+        "";
+
+    display:
+        block;
+
+    width:
+        72px;
+
+    height:
+        2px;
+
+    margin-top:
+        28px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--about-gold),
+            var(--about-blue),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   10. TEXTO
+   ========================================================= */
+
+.about-content > p {
+
+    max-width:
+        560px;
+
+    margin:
+        30px 0 0;
+
+    color:
+        var(--about-muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.95;
+
+}
+
+
+/* =========================================================
+   11. INDICADORES
+   ========================================================= */
+
+.about-features {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap:
+        1px;
+
+    margin:
+        42px 0 0;
+
+    border:
+        1px solid
+        var(--about-line);
+
+    background:
+        var(--about-line);
+
+}
+
+
+/* =========================================================
+   12. FEATURE
+   ========================================================= */
+
+.feature {
+
+    position:
+        relative;
+
+    min-height:
+        112px;
+
+    padding:
+        25px 24px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    transition:
+
+        background
+        .5s ease,
+
+        transform
+        .6s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* linha de luz */
+
+.feature::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--about-blue),
+            var(--about-gold)
+        );
+
+    transition:
+        width
+        .65s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.feature h3 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--about-navy);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        28px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.035em;
+
+    transition:
+        transform
+        .5s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.feature span {
+
+    color:
+        var(--about-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .05em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   13. BOTÃO
+   ========================================================= */
+
+.about-content .btn-primary {
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        54px;
+
+    margin-top:
+        38px;
+
+    padding:
+        0 32px;
+
+    color:
+        #ffffff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--about-navy),
+            var(--about-navy-dark)
+        );
+
+    border:
+        1px solid
+        rgba(13,59,102,.15);
+
+    border-radius:
+        999px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .06em;
+
+    box-shadow:
+
+        0 18px 40px
+        rgba(13,59,102,.18);
+
+    overflow:
+        hidden;
+
+    transition:
+
+        transform
+        .5s
+        cubic-bezier(.16,1,.3,1),
+
+        box-shadow
+        .5s ease;
+
+}
+
+
+/* brilho cinematográfico */
+
+.about-content .btn-primary::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -100%;
+
+    left:
+        -40%;
+
+    width:
+        35%;
+
+    height:
+        300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.20),
+            transparent
+        );
+
+    transform:
+        rotate(20deg);
+
+    transition:
+        left
+        .8s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.about-content .btn-primary:hover::before {
+
+    left:
+        120%;
+
+}
+
+
+/* =========================================================
+   14. HOVER
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .about-image:hover img {
+
+        transform:
+            scale(1.025);
+
+        box-shadow:
+
+            0 45px 105px
+            rgba(8,43,75,.16);
+
+    }
+
+
+    .feature:hover {
+
+        background:
+            #ffffff;
+
+        transform:
+            translateY(-3px);
+
+    }
+
+
+    .feature:hover::before {
+
+        width:
+            100%;
+
+    }
+
+
+    .feature:hover h3 {
+
+        transform:
+            translateX(4px);
+
+    }
+
+
+    .about-content .btn-primary:hover {
+
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+
+            0 24px 50px
+            rgba(13,59,102,.25);
+
+    }
+
+}
+
+
+/* =========================================================
+   15. TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .about {
+
+        padding:
+            120px 0;
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns:
+            minmax(0,1fr)
+            minmax(0,1fr);
+
+        gap:
+            55px;
+
+    }
+
+
+    .about-image {
+
+        min-height:
+            540px;
+
+    }
+
+
+    .about-image img {
+
+        height:
+            540px;
+
+    }
+
+
+    .experience-badge {
+
+        left:
+            -18px;
+
+        bottom:
+            30px;
+
+    }
+
+
+    .about-content h1 {
+
+        font-size:
+            clamp(
+                44px,
+                5vw,
+                60px
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   16. MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .about {
+
+        padding:
+            95px 0 90px;
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            55px;
+
+    }
+
+
+    .about-image {
+
+        min-height:
+            420px;
+
+    }
+
+
+    .about-image img {
+
+        height:
+            420px;
+
+    }
+
+
+    .about-image::before {
+
+        width:
+            90%;
+
+        height:
+            90%;
+
+        left:
+            5%;
+
+        top:
+            5%;
+
+        transform:
+            translate(
+                10px,
+                10px
+            );
+
+    }
+
+
+    .experience-badge {
+
+        left:
+            18px;
+
+        bottom:
+            20px;
+
+        min-width:
+            125px;
+
+        min-height:
+            125px;
+
+        padding:
+            18px;
+
+    }
+
+
+    .experience-badge strong {
+
+        font-size:
+            36px;
+
+    }
+
+
+    .about-content h1 {
+
+        font-size:
+            clamp(
+                42px,
+                11vw,
+                58px
+            );
+
+    }
+
+
+    .about-content > p {
+
+        font-size:
+            12px;
+
+        line-height:
+            1.85;
+
+    }
+
+
+    .about-features {
+
+        margin-top:
+            32px;
+
+    }
+
+
+    .feature {
+
+        min-height:
+            100px;
+
+        padding:
+            21px 18px;
+
+    }
+
+
+    .feature h3 {
+
+        font-size:
+            24px;
+
+    }
+
+
+    .feature span {
+
+        font-size:
+            8px;
+
+    }
+
+
+    .about-content .btn-primary {
+
+        width:
+            100%;
+
+        margin-top:
+            32px;
+
+    }
+
+}
+
+
+/* =========================================================
+   17. MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .about {
+
+        padding:
+            80px 0 75px;
+
+    }
+
+
+    .about-grid {
+
+        gap:
+            45px;
+
+    }
+
+
+    .about-image {
+
+        min-height:
+            340px;
+
+    }
+
+
+    .about-image img {
+
+        height:
+            340px;
+
+    }
+
+
+    .experience-badge {
+
+        left:
+            12px;
+
+        bottom:
+            14px;
+
+        min-width:
+            112px;
+
+        min-height:
+            112px;
+
+        padding:
+            16px;
+
+    }
+
+
+    .experience-badge strong {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .experience-badge span {
+
+        font-size:
+            7px;
+
+    }
+
+
+    .about-content h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .about-content h1::after {
+
+        margin-top:
+            22px;
+
+    }
+
+
+    .about-features {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .feature {
+
+        min-height:
+            auto;
+
+        padding:
+            22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   18. MOTION SYSTEM
+   ========================================================= */
+
+
+/* estado normal */
+
+.about .reveal-left,
+.about .reveal-right,
+.about .reveal-up {
+
+    opacity:
+        1;
+
+    transform:
+        none;
+
+}
+
+
+/* quando JS estiver pronto */
+
+.about.js-ready .reveal-left,
+.about.js-ready .reveal-right,
+.about.js-ready .reveal-up {
+
+    opacity:
+        0;
+
+    transition:
+
+        opacity
+        .9s
+        cubic-bezier(.16,1,.3,1),
+
+        transform
+        1s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* imagem entra da esquerda */
+
+.about.js-ready .reveal-left {
+
+    transform:
+        translate3d(
+            -45px,
+            0,
+            0
+        );
+
+}
+
+
+/* conteúdo entra da direita */
+
+.about.js-ready .reveal-right {
+
+    transform:
+        translate3d(
+            45px,
+            0,
+            0
+        );
+
+}
+
+
+/* indicadores sobem */
+
+.about.js-ready .reveal-up {
+
+    transform:
+        translate3d(
+            0,
+            28px,
+            0
+        );
+
+}
+
+
+/* visível */
+
+.about.js-ready .is-visible {
+
+    opacity:
+        1;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+}
+
+
+/* =========================================================
+   19. CASCATA
+   ========================================================= */
+
+.about.js-ready
+.about-features .feature:nth-child(1) {
+
+    transition-delay:
+        120ms;
+
+}
+
+
+.about.js-ready
+.about-features .feature:nth-child(2) {
+
+    transition-delay:
+        200ms;
+
+}
+
+
+.about.js-ready
+.about-features .feature:nth-child(3) {
+
+    transition-delay:
+        280ms;
+
+}
+
+
+.about.js-ready
+.about-features .feature:nth-child(4) {
+
+    transition-delay:
+        360ms;
+
+}
+
+
+/* =========================================================
+   20. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about *,
+    .about *::before,
+    .about *::after {
+
+        transition:
+            none !important;
+
+        animation:
+            none !important;
+
+    }
+
+
+    .about .reveal-left,
+    .about .reveal-right,
+    .about .reveal-up {
+
+        opacity:
+            1 !important;
+
+        transform:
+            none !important;
+
+    }
+
+}
