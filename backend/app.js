@@ -10,44 +10,57 @@ const cors = require("cors");
 
 const app = express();
 console.log("Iniciando a API de Agendamentos...");
+
 const PORT = Number(process.env.PORT) || 3000;
 
-// Banco de dados persistente.
+// Banco de dados persistente
 const dataDirectory = path.join(__dirname, "data");
 fs.mkdirSync(dataDirectory, { recursive: true });
 
-const db = new Database(path.join(dataDirectory, "agendamentos.db"));
+const db = new Database(
+    path.join(dataDirectory, "agendamentos.db")
+);
 
 db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");
 
-db.exec(`
-    CREATE TABLE IF NOT EXISTS appointments (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        whatsapp TEXT NOT NULL,
-        email TEXT,
-        treatment TEXT NOT NULL,
-        appointment_date TEXT NOT NULL,
-        period TEXT NOT NULL,
-        message TEXT,
-        contact_consent INTEGER NOT NULL,
-        marketing_consent INTEGER NOT NULL DEFAULT 0,
-        status TEXT NOT NULL DEFAULT 'pendente',
-        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+// Verificar se a estrutura multi-clínica foi preparada
+const clinicColumn = db.prepare(`
+    PRAGMA table_info(appointments)
+`).all().some(column => column.name === "clinic_id");
+
+if (!clinicColumn) {
+    throw new Error(
+        "Banco não migrado. Execute migrar-multiclinica.js primeiro."
     );
-`);
+}
+
+// Identificação da clínica responsável pelo formulário atual
+const clinic = db.prepare(`
+    SELECT id, name, slug
+    FROM clinics
+    WHERE slug = ? AND active = 1
+`).get("alencar-odontologia");
+
+if (!clinic) {
+    throw new Error(
+        "Clínica Alencar não encontrada ou está inativa."
+    );
+}
+
+console.log(`Clínica ativa: ${clinic.name} (ID ${clinic.id})`);
 
 app.disable("x-powered-by");
 app.use(helmet());
-// Desenvolvimento local: permitir o Live Server.
+
+// CORS para desenvolvimento local
 app.use(cors({
     origin: (origin, callback) => {
-        // Permite ferramentas locais sem origem, como alguns testes.
         if (!origin) return callback(null, true);
 
         try {
             const url = new URL(origin);
+
             const isLocalhost =
                 url.protocol === "http:" &&
                 ["localhost", "127.0.0.1"].includes(url.hostname);
@@ -56,15 +69,18 @@ app.use(cors({
                 return callback(null, true);
             }
         } catch (_) {
-            // Origem inválida.
+            // Origem inválida
         }
 
-        return callback(new Error("Origem não permitida pelo CORS."));
+        return callback(
+            new Error("Origem não permitida pelo CORS.")
+        );
     }
 }));
+
 app.use(express.json({ limit: "10kb" }));
 
-// Limite básico de solicitações por IP.
+// Limite de solicitações por IP
 app.use(
     "/api/",
     rateLimit({
@@ -73,15 +89,18 @@ app.use(
         standardHeaders: "draft-7",
         legacyHeaders: false,
         message: {
-            message: "Muitas tentativas. Aguarde alguns minutos e tente novamente."
+            message:
+                "Muitas tentativas. Aguarde alguns minutos e tente novamente."
         }
     })
 );
 
 function isText(value, maxLength) {
-    return typeof value === "string" &&
+    return (
+        typeof value === "string" &&
         value.trim().length > 0 &&
-        value.trim().length <= maxLength;
+        value.trim().length <= maxLength
+    );
 }
 
 function localToday() {
@@ -89,19 +108,23 @@ function localToday() {
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, "0");
     const day = String(now.getDate()).padStart(2, "0");
+
     return `${year}-${month}-${day}`;
 }
 
-// Rota de saúde: não revela informações pessoais.
+// Rota de saúde
 app.get("/api/health", (req, res) => {
     res.json({
         status: "ok",
-        service: "Alencar Odontologia - API de Agendamentos"
+        service: "API de Agendamentos",
+        clinic: clinic.name
     });
 });
 
+// Inserção de agendamento vinculada à clínica
 const insertAppointment = db.prepare(`
     INSERT INTO appointments (
+        clinic_id,
         name,
         whatsapp,
         email,
@@ -113,6 +136,7 @@ const insertAppointment = db.prepare(`
         marketing_consent
     )
     VALUES (
+        @clinic_id,
         @name,
         @whatsapp,
         @email,
@@ -129,39 +153,50 @@ app.post("/api/agendamento", (req, res) => {
     try {
         const body = req.body;
 
-        if (!body || typeof body !== "object" || Array.isArray(body)) {
+        if (
+            !body ||
+            typeof body !== "object" ||
+            Array.isArray(body)
+        ) {
             return res.status(400).json({
-                message: "Envie os dados do agendamento em formato válido."
+                message:
+                    "Envie os dados do agendamento em formato válido."
             });
         }
 
-        const name = typeof body.name === "string"
-            ? body.name.trim()
-            : "";
+        const name =
+            typeof body.name === "string"
+                ? body.name.trim()
+                : "";
 
         const whatsapp = String(
             body.whatsappClean || body.whatsapp || ""
         ).replace(/\D/g, "");
 
-        const email = typeof body.email === "string"
-            ? body.email.trim()
-            : "";
+        const email =
+            typeof body.email === "string"
+                ? body.email.trim()
+                : "";
 
-        const treatment = typeof body.treatment === "string"
-            ? body.treatment.trim()
-            : "";
+        const treatment =
+            typeof body.treatment === "string"
+                ? body.treatment.trim()
+                : "";
 
-        const date = typeof body.date === "string"
-            ? body.date.trim()
-            : "";
+        const date =
+            typeof body.date === "string"
+                ? body.date.trim()
+                : "";
 
-        const period = typeof body.period === "string"
-            ? body.period.trim()
-            : "";
+        const period =
+            typeof body.period === "string"
+                ? body.period.trim()
+                : "";
 
-        const message = typeof body.message === "string"
-            ? body.message.trim()
-            : "";
+        const message =
+            typeof body.message === "string"
+                ? body.message.trim()
+                : "";
 
         if (!isText(name, 120) || name.length < 3) {
             return res.status(400).json({
@@ -171,14 +206,21 @@ app.post("/api/agendamento", (req, res) => {
 
         if (!/^\d{10,11}$/.test(whatsapp)) {
             return res.status(400).json({
-                message: "Informe um WhatsApp brasileiro válido com DDD."
+                message:
+                    "Informe um WhatsApp brasileiro válido com DDD."
             });
         }
 
-        if (email.length > 254 ||
-            (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
+        if (
+            email.length > 254 ||
+            (
+                email &&
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            )
+        ) {
             return res.status(400).json({
-                message: "Informe um e-mail válido ou deixe o campo vazio."
+                message:
+                    "Informe um e-mail válido ou deixe o campo vazio."
             });
         }
 
@@ -207,7 +249,8 @@ app.post("/api/agendamento", (req, res) => {
 
         if (date < localToday()) {
             return res.status(400).json({
-                message: "A data deve ser hoje ou uma data futura."
+                message:
+                    "A data deve ser hoje ou uma data futura."
             });
         }
 
@@ -219,17 +262,20 @@ app.post("/api/agendamento", (req, res) => {
 
         if (message.length > 500) {
             return res.status(400).json({
-                message: "A mensagem deve ter no máximo 500 caracteres."
+                message:
+                    "A mensagem deve ter no máximo 500 caracteres."
             });
         }
 
         if (body.contactConsent !== true) {
             return res.status(400).json({
-                message: "É necessário autorizar o contato para enviar a solicitação."
+                message:
+                    "É necessário autorizar o contato para enviar a solicitação."
             });
         }
 
         const result = insertAppointment.run({
+            clinic_id: clinic.id,
             name,
             whatsapp,
             email: email || null,
@@ -238,7 +284,8 @@ app.post("/api/agendamento", (req, res) => {
             period,
             message,
             contact_consent: 1,
-            marketing_consent: body.marketingConsent === true ? 1 : 0
+            marketing_consent:
+                body.marketingConsent === true ? 1 : 0
         });
 
         return res.status(201).json({
@@ -249,22 +296,40 @@ app.post("/api/agendamento", (req, res) => {
                 status: "pendente"
             }
         });
+
     } catch (error) {
-        console.error("Erro interno ao registrar solicitação.");
+        console.error(
+            "Erro interno ao registrar solicitação:",
+            error.message
+        );
 
         return res.status(500).json({
-            message: "Não foi possível registrar a solicitação agora. Tente novamente."
+            message:
+                "Não foi possível registrar a solicitação agora. Tente novamente."
         });
     }
 });
 
-// JSON inválido ou corpo de requisição malformado.
+// Tratamento de erros
 app.use((error, req, res, next) => {
     if (error instanceof SyntaxError && "body" in error) {
         return res.status(400).json({
-            message: "O formato dos dados enviados é inválido."
+            message:
+                "O formato dos dados enviados é inválido."
         });
     }
+
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    if (error.message?.includes("CORS")) {
+        return res.status(403).json({
+            message: "Origem não autorizada."
+        });
+    }
+
+    console.error("Erro na API:", error.message);
 
     return res.status(500).json({
         message: "Ocorreu um erro interno."
@@ -273,5 +338,7 @@ app.use((error, req, res, next) => {
 
 app.listen(PORT, () => {
     console.log(`API disponível em http://localhost:${PORT}`);
-    console.log(`Teste de saúde: http://localhost:${PORT}/api/health`);
+    console.log(
+        `Teste de saúde: http://localhost:${PORT}/api/health`
+    );
 });
