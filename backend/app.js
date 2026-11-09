@@ -9,6 +9,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 const app = express();
+console.log("Iniciando a API de Agendamentos...");
 const PORT = Number(process.env.PORT) || 3000;
 
 // Banco de dados persistente.
