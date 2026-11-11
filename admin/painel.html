@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#062b4b">
+  <title>Painel Administrativo | Alencar Odontologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/painel.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="painel.html" aria-label="Alencar Odontologia - início">
+        <img src="../assets/images/clinic/alencar-logo.png" alt="Alencar Odontologia" class="brand-logo">
+      </a>
+
+      <nav class="side-nav" aria-label="Navegação principal">
+        <a class="nav-link active" href="#inicio" data-section="inicio"><span class="nav-icon">▦</span><span>Painel Inicial</span></a>
+        <a class="nav-link" href="#agendamentos" data-section="agendamentos"><span class="nav-icon">▦</span><span>Agendamentos</span></a>
+        <a class="nav-link" href="#confirmados" data-status="confirmado"><span class="nav-icon icon-confirmed">✓</span><span>Confirmados</span></a>
+        <a class="nav-link" href="#concluidos" data-status="concluido"><span class="nav-icon icon-done">✓</span><span>Concluídos</span></a>
+        <a class="nav-link" href="#cancelados" data-status="cancelado"><span class="nav-icon icon-cancelled">×</span><span>Cancelados</span></a>
+      </nav>
+
+      <div class="nav-separator"></div>
+      <nav class="side-nav side-nav-bottom" aria-label="Configurações">
+        <a class="nav-link" href="#configuracoes" data-section="configuracoes"><span class="nav-icon">⚙</span><span>Configurações</span></a>
+        <button class="nav-link logout-link" type="button" id="logoutButton"><span class="nav-icon">⬡</span><span>Sair</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="footer-tooth">♧</div>
+        <p>Cuidando do seu<br><strong>sorriso sempre!</strong></p>
+        <span class="footer-smile"></span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+        <div class="topbar-title">Painel Administrativo</div>
+        <div class="topbar-right">
+          <span class="online"><i></i> Online</span>
+          <button class="profile-button" type="button" aria-label="Perfil da equipe">
+            <span class="avatar avatar-large">●</span><strong>Dr(a). Equipe</strong><span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="dashboard-content" id="inicio">
+        <div class="welcome-row">
+          <div>
+            <h1>Olá, equipe!</h1>
+            <p>Aqui está o resumo dos agendamentos da sua clínica.</p>
+          </div>
+          <label class="date-control"><span>▦</span><input type="date" id="dashboardDate" aria-label="Data do painel"></label>
+        </div>
+
+        <section class="stats-grid" aria-label="Resumo dos agendamentos">
+          <article class="stat-card stat-total">
+            <div class="stat-icon">▦</div><div><strong id="totalCount">—</strong><span>Total de solicitações</span></div><div class="stat-track"><i id="totalBar"></i></div>
+          </article>
+          <article class="stat-card stat-confirmed">
+            <div class="stat-icon">✓</div><div><strong id="confirmedCount">—</strong><span>Confirmados</span></div><div class="stat-track"><i id="confirmedBar"></i></div>
+          </article>
+          <article class="stat-card stat-pending">
+            <div class="stat-icon">◷</div><div><strong id="pendingCount">—</strong><span>Pendentes</span></div><div class="stat-track"><i id="pendingBar"></i></div>
+          </article>
+          <article class="stat-card stat-cancelled">
+            <div class="stat-icon">×</div><div><strong id="cancelledCount">—</strong><span>Cancelados</span></div><div class="stat-track"><i id="cancelledBar"></i></div>
+          </article>
+        </section>
+
+        <div class="dashboard-grid">
+          <div class="main-column">
+            <section class="panel appointments-panel" id="agendamentos">
+              <div class="panel-heading">
+                <h2><span class="heading-icon">▦</span>Próximos Agendamentos</h2>
+                <button class="text-action" id="viewAllButton" type="button">Ver todos <span>→</span></button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Paciente</th><th>Tratamento</th><th>Data</th><th>Horário</th><th>Status</th></tr></thead>
+                  <tbody id="appointmentsBody"><tr><td colspan="5" class="table-message">Carregando agendamentos...</td></tr></tbody>
+                </table>
+              </div>
+              <p class="data-note" id="dataNote">Os dados serão carregados do sistema da clínica.</p>
+            </section>
+
+            <section class="panel chart-panel">
+              <div class="panel-heading">
+                <h2><span class="chart-heading-icon">▥</span>Gráfico de Solicitações</h2>
+                <select id="chartRange" aria-label="Período do gráfico"><option value="30">Últimos 30 dias</option><option value="7">Últimos 7 dias</option></select>
+              </div>
+              <div class="chart-container"><canvas id="requestsChart" aria-label="Gráfico de solicitações por dia"></canvas></div>
+            </section>
+          </div>
+
+          <aside class="right-column">
+            <section class="panel calendar-panel">
+              <div class="panel-heading"><h2><span class="heading-icon">▦</span>Calendário</h2></div>
+              <div class="calendar-top"><button id="prevMonth" aria-label="Mês anterior">‹</button><strong id="calendarMonth">—</strong><button id="nextMonth" aria-label="Próximo mês">›</button></div>
+              <div class="calendar-grid calendar-weekdays"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+              <div class="calendar-grid" id="calendarDays"></div>
+            </section>
+
+            <section class="trust-card">
+              <div class="trust-copy"><div class="shield">✓</div><strong>Sistema Seguro e Confiável</strong><p>Seus dados são protegidos com tecnologia de ponta.</p></div>
+              <div class="trust-brand"><img src="../assets/images/clinic/alencar-logo.png" alt="Alencar Odontologia"></div>
+            </section>
+          </aside>
+        </div>
+        <div class="connection-message" id="connectionMessage" role="status">Interface carregada. A integração com a API administrativa será ativada na próxima etapa.</div>
+      </section>
+    </main>
+  </div>
+  <script src="js/painel.js"></script>
+</body>
+</html>
