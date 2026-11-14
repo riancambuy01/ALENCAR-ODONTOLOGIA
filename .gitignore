@@ -1,0 +1,15 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
+.env
+**/.env
+
+# Banco de dados SQLite
+backend/data/
+*.db
+*.db-shm
+*.db-wal
+
+# Backups
+backups/
