@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d4b70">
+
+    <title>Acesso Administrativo | Alpha Odonto Digital</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <section class="login-visual">
+            <div class="visual-overlay"></div>
+
+            <div class="visual-content">
+                <div class="brand">
+                    <div class="brand-symbol">A</div>
+                    <div>
+                        <strong>ALPHA</strong>
+                        <span>ODONTO DIGITAL</span>
+                    </div>
+                </div>
+
+                <div class="visual-message">
+                    <span class="eyebrow">GESTÃO INTELIGENTE</span>
+
+                    <h1>Sua clínica.<br>Seu controle.<br><span>Seu crescimento.</span></h1>
+
+                    <p>
+                        Uma plataforma desenvolvida para simplificar
+                        a gestão e transformar a experiência da sua clínica.
+                    </p>
+                </div>
+
+                <div class="visual-footer">
+                    <span>© 2026 Alpha Odonto Digital</span>
+                    <span>Gestão odontológica inteligente</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="login-form-section">
+
+            <div class="login-card">
+
+                <div class="mobile-brand">
+                    <div class="brand-symbol">A</div>
+                    <strong>ALPHA ODONTO DIGITAL</strong>
+                </div>
+
+                <div class="form-heading">
+                    <span class="eyebrow">ÁREA RESTRITA</span>
+                    <h2>Bem-vindo de volta!</h2>
+                    <p>Entre com suas credenciais para acessar o painel administrativo.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seuemail@clinica.com.br"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="toggle-password"
+                                aria-label="Mostrar senha"
+                            >
+                                Mostrar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="loginMessage" class="login-message" role="alert"></div>
+
+                    <button type="submit" id="loginButton" class="login-button">
+                        <span id="buttonText">Entrar no painel</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </form>
+
+                <div class="security-note">
+                    <span class="security-icon">⌑</span>
+                    <span>Ambiente protegido. Acesso exclusivo para usuários autorizados.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
